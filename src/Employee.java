@@ -2,52 +2,50 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Employee {
-    private final String id;
+    private static int idCounter = 1;
+    private final int id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
 
     private String email;
     private String phoneNumber;
-    private String address;
+    private Address address;
 
-    private String position;
+    private JobPosition position;
     private BigDecimal salary;
     private String iban;
 
     private boolean active;
 
     public Employee(
-            String id,
             String firstName,
             String lastName,
             LocalDate dateOfBirth,
             String email,
             String phoneNumber,
-            String address,
-            String position,
+            Address address,
+            JobPosition position,
             BigDecimal salary,
             String iban,
             boolean active
     ) {
-        this.id = id;
+        this.id = idCounter++;
+
         setFirstName(firstName);
         setLastName(lastName);
-        this.dateOfBirth = dateOfBirth;
-
+        setDateOfBirth(dateOfBirth);
         setEmail(email);
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-
-        this.position = position;
+        setPhoneNumber(phoneNumber);
+        setAddress(address);   // Nutzt deinen Check
+        setPosition(position); // Nutzt deinen Check
         setSalary(salary);
-        this.iban = iban;
-
+        setIban(iban);
         setActive(active);
     }
 
     // ID
-    public String getId() {
+    public int getId() {
         return this.id;
     }
 
@@ -119,7 +117,18 @@ public class Employee {
     }
 
     // PhoneNumber
+
+    private void validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.isBlank()) {
+            return; // Optional: Nichts zu tun
+        }
+        if (phoneNumber.matches(".*[a-zA-Z].*")) {
+            throw new IllegalArgumentException("Telefonnummer darf keine Buchstaben enthalten.");
+        }
+    }
+
     public void setPhoneNumber(String phoneNumber) {
+        validatePhoneNumber(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
@@ -128,20 +137,23 @@ public class Employee {
     }
 
     // Address
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
     // Position
-    public void setPosition(String position) {
+    public void setPosition(JobPosition position) {
+        if (position == null) {
+            throw new IllegalArgumentException("Position cannot be null.");
+        }
         this.position = position;
     }
 
-    public String getPosition() {
+    public JobPosition getPosition() {
         return position;
     }
 
@@ -158,6 +170,7 @@ public class Employee {
     }
 
     public BigDecimal getSalary() {
+
         return this.salary;
     }
 
