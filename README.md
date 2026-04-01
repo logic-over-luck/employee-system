@@ -1,16 +1,24 @@
-# Employee System
+# Employee Management System
 
-Building an employee management system in Java.
+A Java learning project for managing employees.
 
 ## Current Features
-- **Automated ID Generation**: Uses a `static` counter for unique employee identification.
-- **Deep Domain Modeling**: Custom `Address` class to encapsulate location data.
-- **Type Safety**: Implemented `Enums` for job positions (CEO, Developer, etc.) to prevent invalid inputs.
-- **Financial Precision**: All salary calculations use `BigDecimal` to avoid floating-point errors.
-- **Strict Validation**: Automated checks for email formats, ZIP codes, birth dates, and salary ranges.
+- Employee domain model
+- Address and job position handling
+- SQLite database integration
+- Save employees
+- Load employee by ID
+- Paginated employee loading
+- Update employees
+- Delete employees
 
-## Status
-Work in progress 
+## Tech Stack
+- Java
+- SQLite
+- JDBC
 
-## Notes
-Part of my early Java learning phase.
+## Planned Features
+- JavaFX user interface
+- Employee detail view
+- Add / edit / delete in UI
+- Search and filtering
