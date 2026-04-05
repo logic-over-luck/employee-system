@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="de.sebi.employeesystem.EmployeeDetailController"
+            prefWidth="560" prefHeight="680">
+
+    <!-- ── Header mit Name + Aktionsbuttons ── -->
+    <top>
+        <VBox style="-fx-background-color: #2c3e50;">
+            <HBox style="-fx-padding: 14 20 14 20;" alignment="CENTER_LEFT" spacing="10">
+                <VBox>
+                    <Label fx:id="lblEmployeeName" text="Mitarbeiterprofil"
+                           style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblEmployeeId"
+                           style="-fx-text-fill: #95a5a6; -fx-font-size: 11px;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- Buttons: Ansichtsmodus -->
+                <Button fx:id="btnEdit" text="✏️  Bearbeiten" onAction="#onEditClick"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 7 14 7 14;"/>
+
+                <!-- Buttons: Bearbeitungsmodus (initial unsichtbar) -->
+                <Button fx:id="btnSave" text="💾  Speichern" onAction="#onSaveClick"
+                        visible="false" managed="false"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 7 14 7 14;"/>
+                <Button fx:id="btnCancel" text="↩  Abbrechen" onAction="#onCancelClick"
+                        visible="false" managed="false"
+                        style="-fx-background-color: #95a5a6; -fx-text-fill: white;
+                               -fx-cursor: hand; -fx-padding: 7 14 7 14;"/>
+
+                <Button fx:id="btnDelete" text="🗑" onAction="#onDeleteClick"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white;
+                               -fx-cursor: hand; -fx-padding: 7 10 7 10;"/>
+                <Button text="✖" onAction="#onCloseClick"
+                        style="-fx-background-color: #7f8c8d; -fx-text-fill: white;
+                               -fx-cursor: hand; -fx-padding: 7 10 7 10;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- ── Alle Felder ── -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                    style="-fx-background-color: #f0f2f5;">
+            <VBox spacing="8" style="-fx-padding: 20; -fx-background-color: #f0f2f5;">
+
+                <!-- Persönliche Daten -->
+                <Label text="PERSÖNLICHE DATEN"
+                       style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #95a5a6;"/>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Vorname"/>
+                        <TextField fx:id="txtFirstName" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Nachname"/>
+                        <TextField fx:id="txtLastName" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="4">
+                    <Label text="Geburtsdatum"/>
+                    <DatePicker fx:id="dpDateOfBirth" maxWidth="Infinity" editable="false"
+                                style="-fx-background-color: white;"/>
+                </VBox>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="E-Mail"/>
+                        <TextField fx:id="txtEmail" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Telefon"/>
+                        <TextField fx:id="txtPhone" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                </HBox>
+
+                <Separator/>
+
+                <!-- Adresse -->
+                <Label text="ADRESSE"
+                       style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #95a5a6;"/>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Straße"/>
+                        <TextField fx:id="txtStreet" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                    <VBox spacing="4" prefWidth="90">
+                        <Label text="Hausnummer"/>
+                        <TextField fx:id="txtHouseNumber" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" prefWidth="100">
+                        <Label text="PLZ"/>
+                        <TextField fx:id="txtZipCode" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Stadt"/>
+                        <TextField fx:id="txtCity" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                </HBox>
+
+                <Separator/>
+
+                <!-- Beschäftigung -->
+                <Label text="BESCHÄFTIGUNG"
+                       style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #95a5a6;"/>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Position"/>
+                        <ComboBox fx:id="cmbPosition" maxWidth="Infinity" disable="true"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Einstellungsdatum"/>
+                        <DatePicker fx:id="dpHireDate" maxWidth="Infinity" editable="false"
+                                    style="-fx-background-color: white;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="12">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Gehalt (€)"/>
+                        <TextField fx:id="txtSalary" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="IBAN"/>
+                        <TextField fx:id="txtIban" editable="false"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd;"/>
+                    </VBox>
+                </HBox>
+
+                <CheckBox fx:id="chkActive" text="Mitarbeiter ist aktiv" disable="true"/>
+
+                <Separator/>
+
+                <!-- Statusleiste unten im Formular -->
+                <Label fx:id="lblStatus"
+                       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;"/>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

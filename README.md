@@ -1,24 +1,24 @@
 # Employee Management System
 
-A Java learning project for managing employees.
+Ein JavaFX-Projekt zur Verwaltung von Mitarbeitern mit SQLite-Datenbank.
+Java Lern-Projekt
 
-## Current Features
-- Employee domain model
-- Address and job position handling
-- SQLite database integration
-- Save employees
-- Load employee by ID
-- Paginated employee loading
-- Update employees
-- Delete employees
+## Features
+- Mitarbeiterliste in einer JavaFX-Tabelle
+- Detailansicht für Mitarbeiter
+- Neue Mitarbeiter anlegen
+- Mitarbeiter bearbeiten
+- Mitarbeiter löschen
+- Speicherung in SQLite-Datenbank
+- Paginierung der Mitarbeiterliste
+- Suche nach Mitarbeitern
 
 ## Tech Stack
 - Java
+- JavaFX
+- Maven
 - SQLite
 - JDBC
 
-## Planned Features
-- JavaFX user interface
-- Employee detail view
-- Add / edit / delete in UI
-- Search and filtering
+## Starten
+Projekt mit Maven starten, z. B. über IntelliJ oder Maven.
