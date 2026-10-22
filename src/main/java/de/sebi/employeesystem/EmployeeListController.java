@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class HelloController {
+public class EmployeeListController {
 
     // ── Tabelle ──────────────────────────────────────────────────
     @FXML private TableView<Employee>            employeeTable;

@@ -53,7 +53,7 @@ public class EmployeeDetailController {
     private Runnable        onSaveCallback;  // Masterliste aktualisieren
 
     // ─────────────────────────────────────────────────────────────
-    // Setup (vom HelloController aufgerufen)
+    // Setup (vom EmployeeListController aufgerufen)
     // ─────────────────────────────────────────────────────────────
 
     /**

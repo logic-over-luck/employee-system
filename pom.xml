@@ -76,7 +76,7 @@
                         <!-- Starten mit: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>de.sebi.employeesystem/de.sebi.employeesystem.HelloApplication</mainClass>
+                            <mainClass>de.sebi.employeesystem/de.sebi.employeesystem.EmployeeApp</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
